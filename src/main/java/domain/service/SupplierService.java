@@ -36,4 +36,20 @@ public class SupplierService {
                 .map(MapperSupplier::mapperSuppliertToSupplierResponse)
                 .toList();
     }
+
+    public SupplierResponse update(Long id, SupplierRequest supplierRequest) {
+
+       return supplierDAO.getById(id)
+                .map(
+                        supplier ->
+                        MapperSupplier.mapperSuppliertToSupplierResponse(
+                            supplierDAO.save(
+                                    MapperSupplier.mapperSupplierUpdate(supplier, supplierRequest)
+                            )
+                    )
+                )
+                .orElse(null);
+    }
+
+    
 }

@@ -31,4 +31,8 @@ public class InventoryController {
         return supplierService.getAll();
     }
 
+    public SupplierResponse update(Long id, SupplierRequest supplierRequest) {
+        return supplierService.update(id, supplierRequest);
+    }
+
 }

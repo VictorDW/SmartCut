@@ -6,6 +6,7 @@ import domain.model.Status;
 import domain.model.Supplier;
 
 import java.time.LocalDateTime;
+import java.util.Objects;
 
 public class MapperSupplier {
 
@@ -39,5 +40,26 @@ public class MapperSupplier {
                 supplier.getDescription(),
                 supplier.getStatus()
         );
+    }
+
+    public static  Supplier mapperSupplierUpdate(Supplier supplier, SupplierRequest supplierRequest) {
+
+        if (Objects.nonNull(supplierRequest.firstName())) {
+            supplier.getPerson().setFirstName(supplierRequest.firstName());
+        }
+        if (Objects.nonNull(supplierRequest.lastName())) {
+            supplier.getPerson().setLastName(supplierRequest.lastName());
+        }
+        if (Objects.nonNull(supplierRequest.cedula())) {
+            supplier.getPerson().setCedula(supplierRequest.cedula());
+        }
+        if (Objects.nonNull(supplierRequest.phone())) {
+            supplier.getPerson().setPhone(supplierRequest.phone());
+        }
+        if (Objects.nonNull(supplierRequest.description())) {
+            supplier.setDescription(supplierRequest.description());
+        }
+
+        return supplier;
     }
 }
