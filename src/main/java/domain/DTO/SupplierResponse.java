@@ -1,6 +1,6 @@
 package domain.DTO;
 
-import domain.model.Status;
+import lombok.ToString;
 
 import java.time.LocalDateTime;
 
@@ -11,7 +11,6 @@ public record SupplierResponse(
         String phone,
         String addres,
         LocalDateTime dataRegister,
-        String description,
-        Status status
+        String description
 ) {
 }

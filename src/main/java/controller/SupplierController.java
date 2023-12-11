@@ -1,22 +1,23 @@
 package controller;
 
 import domain.DAO.ISupplierDAO;
-import domain.DAO.SupplierDAOImpl;
+import domain.DAO.impl.SupplierDAOImpl;
 import domain.DTO.SupplierRequest;
 import domain.DTO.SupplierResponse;
+import domain.service.ISupplierService;
 import infra.JPAUtils;
-import domain.service.SupplierService;
+import domain.service.SupplierServiceImpl;
 
 import java.util.List;
 
-public class InventoryController {
+public class SupplierController {
 
-    private final SupplierService supplierService;
+    private final ISupplierService supplierService;
 
-    public InventoryController() {
+    public SupplierController() {
 
         ISupplierDAO iSupplierDAO = new SupplierDAOImpl(JPAUtils.getEntityManager());
-        this.supplierService = new SupplierService(iSupplierDAO);
+        this.supplierService = new SupplierServiceImpl(iSupplierDAO);
     }
 
     public SupplierResponse create(SupplierRequest supplierRequest) {
@@ -33,6 +34,9 @@ public class InventoryController {
 
     public SupplierResponse update(Long id, SupplierRequest supplierRequest) {
         return supplierService.update(id, supplierRequest);
+    }
+    public void delete(Long id) {
+        supplierService.delete(id);
     }
 
 }

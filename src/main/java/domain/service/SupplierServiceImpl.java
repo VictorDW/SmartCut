@@ -7,13 +7,12 @@ import domain.mapper.MapperSupplier;
 
 import java.util.List;
 
-public class SupplierService {
+public class SupplierServiceImpl implements ISupplierService {
 
     private final ISupplierDAO supplierDAO;
-    public SupplierService(ISupplierDAO iSupplierDAO) {
+    public SupplierServiceImpl(ISupplierDAO iSupplierDAO) {
         this.supplierDAO = iSupplierDAO;
     }
-
 
     public SupplierResponse create(SupplierRequest supplierRequest) {
 
@@ -40,16 +39,25 @@ public class SupplierService {
     public SupplierResponse update(Long id, SupplierRequest supplierRequest) {
 
        return supplierDAO.getById(id)
-                .map(
-                        supplier ->
-                        MapperSupplier.mapperSuppliertToSupplierResponse(
-                            supplierDAO.save(
-                                    MapperSupplier.mapperSupplierUpdate(supplier, supplierRequest)
+                .map(supplier ->
+                            MapperSupplier.mapperSuppliertToSupplierResponse(
+                                supplierDAO.save(
+                                        MapperSupplier.mapperSupplierUpdate(supplier, supplierRequest)
+                                )
                             )
-                    )
                 )
                 .orElse(null);
     }
 
-    
+    @Override
+    public void delete(Long id) {
+        supplierDAO.getById(id).ifPresent(
+                supplier ->
+                    supplierDAO.save(
+                            MapperSupplier.mapperSupplierDelete(supplier)
+                    )
+        );
+    }
+
+
 }

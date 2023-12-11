@@ -2,6 +2,7 @@ package domain.mapper;
 
 import domain.DTO.SupplierRequest;
 import domain.DTO.SupplierResponse;
+import domain.model.Person;
 import domain.model.Status;
 import domain.model.Supplier;
 
@@ -16,12 +17,14 @@ public class MapperSupplier {
 
          Supplier supplier = new Supplier();
 
-         supplier.getPerson().setFirstName(supplierRequest.firstName());
-         supplier.getPerson().setLastName(supplierRequest.lastName());
-         supplier.getPerson().setCedula(supplierRequest.cedula());
-         supplier.getPerson().setAddres(supplierRequest.addres());
-         supplier.getPerson().setPhone(supplierRequest.phone());
-         supplier.getPerson().setDataRegister(LocalDateTime.now());
+         supplier.setPerson(new Person(
+                 supplierRequest.firstName(),
+                 supplierRequest.lastName(),
+                 supplierRequest.cedula(),
+                 supplierRequest.addres(),
+                 supplierRequest.phone(),
+                 LocalDateTime.now()
+         ));
          supplier.setDescription(supplierRequest.description());
          supplier.setStatus(Status.ACTIVE);
 
@@ -37,8 +40,7 @@ public class MapperSupplier {
                 supplier.getPerson().getPhone(),
                 supplier.getPerson().getAddres(),
                 supplier.getPerson().getDataRegister(),
-                supplier.getDescription(),
-                supplier.getStatus()
+                supplier.getDescription()
         );
     }
 
@@ -60,6 +62,12 @@ public class MapperSupplier {
             supplier.setDescription(supplierRequest.description());
         }
 
+        return supplier;
+    }
+
+    public static Supplier mapperSupplierDelete(Supplier supplier) {
+
+        supplier.setStatus(Status.INACTIVE);
         return supplier;
     }
 }
