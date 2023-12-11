@@ -7,6 +7,8 @@ import domain.DTO.SupplierResponse;
 import infra.JPAUtils;
 import domain.service.SupplierService;
 
+import java.util.List;
+
 public class InventoryController {
 
     private final SupplierService supplierService;
@@ -21,5 +23,12 @@ public class InventoryController {
         return supplierService.create(supplierRequest);
     }
 
+    public SupplierResponse getById(Long id) {
+        return supplierService.getById(id);
+    }
+
+    public List<SupplierResponse> getAll() {
+        return supplierService.getAll();
+    }
 
 }
