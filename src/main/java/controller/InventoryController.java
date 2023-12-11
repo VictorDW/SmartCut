@@ -1,6 +1,9 @@
 package controller;
 
+import domain.DAO.ISupplierDAO;
 import domain.DAO.SupplierDAOImpl;
+import domain.DTO.SupplierRequest;
+import domain.DTO.SupplierResponse;
 import infra.JPAUtils;
 import domain.service.SupplierService;
 
@@ -10,8 +13,13 @@ public class InventoryController {
 
     public InventoryController() {
 
-        SupplierDAOImpl supplierDAOImpl = new SupplierDAOImpl(JPAUtils.getEntityManager());
-        this.supplierService = new SupplierService(supplierDAOImpl);
+        ISupplierDAO iSupplierDAO = new SupplierDAOImpl(JPAUtils.getEntityManager());
+        this.supplierService = new SupplierService(iSupplierDAO);
     }
+
+    public SupplierResponse create(SupplierRequest supplierRequest) {
+        return supplierService.create(supplierRequest);
+    }
+
 
 }

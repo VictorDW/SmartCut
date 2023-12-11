@@ -3,7 +3,7 @@ package domain.DAO;
 import java.util.List;
 import java.util.Optional;
 
-public interface JpaPersistence<T> {
+public interface IJPAPersistence<T> {
 
     T save(T t);
 

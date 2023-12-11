@@ -1,22 +1,22 @@
 package domain.service;
 
-import domain.DAO.SupplierDAOImpl;
+import domain.DAO.ISupplierDAO;
 import domain.DTO.SupplierRequest;
 import domain.DTO.SupplierResponse;
 import domain.mapper.MapperSupplier;
 
 public class SupplierService {
 
-    private final SupplierDAOImpl supplierDAOImpl;
-    public SupplierService(SupplierDAOImpl supplierDAOImpl) {
-        this.supplierDAOImpl = supplierDAOImpl;
+    private final ISupplierDAO iSupplierDAO;
+    public SupplierService(ISupplierDAO iSupplierDAO) {
+        this.iSupplierDAO = iSupplierDAO;
     }
 
 
     public SupplierResponse create(SupplierRequest supplierRequest) {
 
         return MapperSupplier.mapperSuppliertToSupplierResponse(
-                supplierDAOImpl.save(
+                iSupplierDAO.save(
                         MapperSupplier.mapperSupplierRequestToSupplier(supplierRequest)
                 )
         );

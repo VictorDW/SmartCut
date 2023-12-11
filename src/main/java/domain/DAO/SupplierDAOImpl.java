@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Optional;
 
 @AllArgsConstructor
-public class SupplierDAOImpl implements JpaPersistence{
+public class SupplierDAOImpl implements ISupplierDAO{
 
     private final EntityManager entityManager;
 
@@ -38,10 +38,5 @@ public class SupplierDAOImpl implements JpaPersistence{
        return entityManager.createQuery(query, Supplier.class)
                             .setParameter("status", Status.INACTIVE)
                             .getResultList();
-    }
-
-    @Override
-    public <T> T save(T t) {
-        return null;
     }
 }
