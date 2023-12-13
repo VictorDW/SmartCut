@@ -5,9 +5,9 @@ import java.util.Optional;
 
 public interface IJPAPersistence<T> {
 
-    T save(T t);
+     T save(T t);
 
-    Optional<T> getById(Long id);
+     Optional<T> getById(Long id);
 
-    List<T>getAll();
+     List<T>getAll();
 }
