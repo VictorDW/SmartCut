@@ -1,0 +1,10 @@
+
+7
+java:S1220""Move this file to a named package.8ªªö×Å1
+X	java:S125"<This block of commented-out lines of code should be removed.(ž—õç8¬´ŠÆ1
+W
+java:S1128":Remove this unused import 'controller.SupplierController'.(Þ¸áå8ëÉ´ŠÆ1
+S
+java:S1128"7Remove this unused import 'domain.DTO.SupplierRequest'.(¬Ý‚^8ëÉ´ŠÆ1
+Z
+java:S1128"8Remove this unused import 'domain.DTO.SupplierResponse'.(”´¿ñüÿÿÿÿ8ëÉ´ŠÆ1

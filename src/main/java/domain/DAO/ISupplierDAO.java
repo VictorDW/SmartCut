@@ -2,5 +2,10 @@ package domain.DAO;
 
 import domain.model.Supplier;
 
-public interface ISupplierDAO extends IJPAPersistence<Supplier> {
+public abstract class ISupplierDAO extends IJPAPersistence<Supplier, Long> {
+    protected ISupplierDAO() {
+        super(Supplier.class);
+    }
+
+
 }

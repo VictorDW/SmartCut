@@ -10,8 +10,8 @@ import java.util.List;
 public class SupplierServiceImpl implements ISupplierService {
 
     private final ISupplierDAO supplierDAO;
-    public SupplierServiceImpl(ISupplierDAO iSupplierDAO) {
-        this.supplierDAO = iSupplierDAO;
+    public SupplierServiceImpl(ISupplierDAO supplierDAO) {
+        this.supplierDAO = supplierDAO;
     }
 
     public SupplierResponse create(SupplierRequest supplierRequest) {

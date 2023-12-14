@@ -16,7 +16,7 @@ public class SupplierController {
 
     public SupplierController() {
 
-        ISupplierDAO iSupplierDAO = new SupplierDAOImpl(JPAUtils.getEntityManager());
+        ISupplierDAO iSupplierDAO = new SupplierDAOImpl();
         this.supplierService = new SupplierServiceImpl(iSupplierDAO);
     }
 

@@ -1,0 +1,7 @@
+
+u	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(âãÓ8Ğ‹Æ1
+e	java:S119"IRename this generic name to match the regular expression '^[A-Z][0-9]?$'.(®‘Öù8¨Ğ‹Æ1
+L
+java:S1128"0Remove this unused import 'domain.model.Status'.(òØ¤y8úÃĞ‹Æ1
+T
+java:S1128"2Remove this unused import 'domain.model.Supplier'.(­ñÂ£ùÿÿÿÿ8ûÃĞ‹Æ1

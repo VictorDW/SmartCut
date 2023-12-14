@@ -8,8 +8,8 @@ public class AppSmartCut {
 
         //PRUEBAS PARA EL CRUD
 
-     /*   SupplierController supplierController = new SupplierController();
-        supplierController.create(
+        SupplierController supplierController = new SupplierController();
+     /*   supplierController.create(
                 new SupplierRequest("Victor",
                         "Agudelo",
                         "1116268868",
@@ -32,7 +32,7 @@ public class AppSmartCut {
         });
 
         supplierController.delete(1L);
-
+ */
         SupplierResponse supplier = supplierController.getById(1L);
 
        try {
@@ -48,7 +48,5 @@ public class AppSmartCut {
        }catch (NullPointerException e) {
            System.out.println("no pudo ser encontrado");
        }
-       */
-
     }
 }
